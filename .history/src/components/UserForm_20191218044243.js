@@ -77,7 +77,7 @@ export default class UserForm extends Component {
 
                 });
                 console.log(data)
-                alert('Your Data: '+ JSON.stringify(data))
+                alert('Your Data: '+ data)
             });
         this.setState({data});
     }

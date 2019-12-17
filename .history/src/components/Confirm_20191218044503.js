@@ -120,10 +120,10 @@ export default class Confirm extends Component {
         return (
             <Fragment>
                 <div style={{ width: '100%' }}>
-                    <Container >
-                        <h3>Review Information</h3>
+                <Container >
+                <h3>Review Information</h3>
                     </Container>
-
+                    
                     <Box display="flex"
                         flexDirection="column"
                         p={1} m={1}

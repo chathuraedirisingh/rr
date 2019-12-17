@@ -62,7 +62,7 @@ export default class UserForm extends Component {
     }
 
     get_data(key) {
-
+        console.log(this.state.firstname)
         var data = {}
         firebase
             .database()
@@ -71,15 +71,13 @@ export default class UserForm extends Component {
                 // console.log(snapshot.val())
                 snapshot.forEach(function (child) {
                     var el = child.key;
-                    var value = child.val();
-                    console.log(el, value)
+                    var value = child.value;
                     data[el] = value;
-
+                    
                 });
-                console.log(data)
-                alert('Your Data: '+ JSON.stringify(data))
             });
-        this.setState({data});
+
+            console.log(data)
     }
 
     render() {

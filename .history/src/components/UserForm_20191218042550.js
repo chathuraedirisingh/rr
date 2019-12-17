@@ -62,24 +62,19 @@ export default class UserForm extends Component {
     }
 
     get_data(key) {
-
-        var data = {}
+        console.log(this.state)
         firebase
             .database()
             .ref('dealer_web/' + key)
             .once("value", function (snapshot) {
-                // console.log(snapshot.val())
                 snapshot.forEach(function (child) {
                     var el = child.key;
-                    var value = child.val();
-                    console.log(el, value)
-                    data[el] = value;
-
+                    var value = child.value;
+                    this.state.el = child.key
+                    // this.setState({el : value})
+                    // console.log(child.key + ": " + child.val());
                 });
-                console.log(data)
-                alert('Your Data: '+ JSON.stringify(data))
             });
-        this.setState({data});
     }
 
     render() {

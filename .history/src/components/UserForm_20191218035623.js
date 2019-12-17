@@ -3,7 +3,7 @@ import FormPersonalDetails from './FormPersonalDetails';
 import FormContactDetails from './FormContactDetails';
 import FormEmployerDetails from './FormEmployerDetails';
 import Confirm from './Confirm';
-import firebase from '../configs/firebase';
+
 export default class UserForm extends Component {
     state = {
         step: 1,
@@ -53,33 +53,7 @@ export default class UserForm extends Component {
         let params = new URLSearchParams(search);
         let foo = params.get('key');
 
-        if (!foo == null || foo == undefined) {
-            console.log("undefined")
-        } else {
-            console.log(foo);
-            this.get_data(foo);
-        }
-    }
-
-    get_data(key) {
-
-        var data = {}
-        firebase
-            .database()
-            .ref('dealer_web/' + key)
-            .once("value", function (snapshot) {
-                // console.log(snapshot.val())
-                snapshot.forEach(function (child) {
-                    var el = child.key;
-                    var value = child.val();
-                    console.log(el, value)
-                    data[el] = value;
-
-                });
-                console.log(data)
-                alert('Your Data: '+ JSON.stringify(data))
-            });
-        this.setState({data});
+        console.log(foo)
     }
 
     render() {
