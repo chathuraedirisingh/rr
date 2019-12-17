@@ -41,8 +41,7 @@ export default class FormEmployerDetails extends Component {
                             <Select
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
-                                variant="outlined"
-                                style={{minWidth:200}}
+                                style={{minWidth:100}}
                                 value={values.employed}
                                 onChange={handleChange('employed')}
                             >

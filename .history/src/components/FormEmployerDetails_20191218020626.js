@@ -41,15 +41,12 @@ export default class FormEmployerDetails extends Component {
                             <Select
                                 labelId="demo-simple-select-label"
                                 id="demo-simple-select"
-                                variant="outlined"
-                                style={{minWidth:200}}
                                 value={values.employed}
                                 onChange={handleChange('employed')}
                             >
-                                <MenuItem value="employed">Employed</MenuItem>
-                                <MenuItem value="self employed">Self Employed / 1099</MenuItem>
-                                <MenuItem value="retired">Retired</MenuItem>
-                                <MenuItem value="other">Other</MenuItem>
+                                <MenuItem value={10}>Ten</MenuItem>
+                                <MenuItem value={20}>Twenty</MenuItem>
+                                <MenuItem value={30}>Thirty</MenuItem>
                             </Select>
 
                             <TextField

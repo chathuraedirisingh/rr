@@ -5,9 +5,7 @@ import { Button, TextField, Container, Box, List, ListItem, ListItemText } from 
 export default class Confirm extends Component {
     continue = e => {
         e.preventDefault();
-
-        //fire up
-        // this.props.nextStep();
+        this.props.nextStep();
     };
 
     render() {

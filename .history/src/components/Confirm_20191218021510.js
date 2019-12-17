@@ -5,9 +5,7 @@ import { Button, TextField, Container, Box, List, ListItem, ListItemText } from 
 export default class Confirm extends Component {
     continue = e => {
         e.preventDefault();
-
-        //fire up
-        // this.props.nextStep();
+        this.props.nextStep();
     };
 
     render() {
@@ -39,9 +37,7 @@ export default class Confirm extends Component {
                         p={1} m={1}
                         bgcolor="background.paper">
 
-                        <Box display="flex"
-                            alignItems='center'
-                            flexDirection="row">
+                        <Box flexDirection='row'>
                             <ListItem>
                                 <ListItemText primary="First Name" secondary={firstname} />
                             </ListItem>
@@ -53,31 +49,28 @@ export default class Confirm extends Component {
                             </ListItem>
                         </Box>
 
-                        <Box display="flex"
-                            alignItems='center'
-                            flexDirection="row">
+                        <List>
+                            <ListItem>
+                                <ListItemText primary="First Name" secondary={firstname} />
+                            </ListItem>
+                            <ListItem>
+                                <ListItemText primary="Middle Name" secondary={middlename} />
+                            </ListItem>
+                            <ListItem>
+                                <ListItemText primary="Last Name" secondary={lastname} />
+                            </ListItem>
                             <ListItem>
                                 <ListItemText primary="Birthday" secondary={birthday} />
                             </ListItem>
                             <ListItem>
                                 <ListItemText primary="SSN" secondary={ssn} />
                             </ListItem>
-                        </Box>
-
-                        <Box display="flex"
-                            alignItems='center'
-                            flexDirection="row">
                             <ListItem>
                                 <ListItemText primary="Email" secondary={email} />
                             </ListItem>
                             <ListItem>
                                 <ListItemText primary="phone" secondary={phone} />
                             </ListItem>
-                        </Box>
-
-                        <Box display="flex"
-                            alignItems='center'
-                            flexDirection="row">
                             <ListItem>
                                 <ListItemText primary="Address" secondary={address} />
                             </ListItem>
@@ -90,33 +83,18 @@ export default class Confirm extends Component {
                             <ListItem>
                                 <ListItemText primary="Zip" secondary={zip} />
                             </ListItem>
-                        </Box>
-
-                        <Box display="flex"
-                            alignItems='center'
-                            flexDirection="row">
                             <ListItem>
                                 <ListItemText primary="Employed" secondary={employed} />
                             </ListItem>
                             <ListItem>
                                 <ListItemText primary="Employer Name" secondary={employer_name} />
                             </ListItem>
-                        </Box>
-
-                        <Box display="flex"
-                            alignItems='center'
-                            flexDirection="row">
                             <ListItem>
                                 <ListItemText primary="Job Title" secondary={job_title} />
                             </ListItem>
                             <ListItem>
                                 <ListItemText primary="Employer Phone Number" secondary={emp_phone} />
                             </ListItem>
-                        </Box>
-
-                        <Box display="flex"
-                            alignItems='center'
-                            flexDirection="row">
                             <ListItem>
                                 <ListItemText primary="Annual Income" secondary={income} />
                             </ListItem>
@@ -126,7 +104,7 @@ export default class Confirm extends Component {
                             <ListItem>
                                 <ListItemText primary="Income Ext*" secondary={income_ext} />
                             </ListItem>
-                        </Box>
+                        </List>
 
                         <Button
                             style={{ marginBottom: 10 }}
