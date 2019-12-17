@@ -11,12 +11,12 @@ export default class Confirm extends Component {
         this.get_connection(this.props.values)
     };
     componentDidMount() {
-        // this.get_connection();
+        this.get_connection();
     }
 
     get_connection(data) {
         // const {data} =this.state;
-        // console.log(data.firstname);
+        console.log(data);
 
         var firstname = data.firstname;
         var middlename = data.middlename;
@@ -41,7 +41,7 @@ export default class Confirm extends Component {
             .database()
             .ref('dealer_web/')
             .orderByChild('ssn')
-            .equalTo(ssn)
+            .equalTo(data.ssn)
             .once('value')
             .then(snapshot => {
                 if (snapshot.val()) {
@@ -222,7 +222,7 @@ export default class Confirm extends Component {
                             variant="contained"
                             color="primary"
                             href="#contained-buttons"
-                            onClick={this.continue} >Save</Button>
+                            onClick={this.continue} >Next</Button>
                     </Box>
 
                 </div>

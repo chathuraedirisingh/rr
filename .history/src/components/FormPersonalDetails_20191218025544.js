@@ -1,12 +1,26 @@
 import React, { Component, Fragment, useState } from "react";
 import { Button, TextField, Container, Box } from "@material-ui/core";
-import firebase from '../configs/firebase'
+import firebase from '../../configs/firebase'
 
 export default class FormPersonalDetails extends Component {
     continue = e => {
         e.preventDefault();
         this.props.nextStep();
     };
+
+    componentDidMount() {
+        this.get_connection();
+    }
+
+    get_connection() {
+        firebase
+            .database()
+            .ref('Dealers/')
+            .once('value')
+            .then(snapshot => {
+                console.log(snapshot.val());
+            });
+    }
 
     render() {
 
@@ -76,7 +90,7 @@ export default class FormPersonalDetails extends Component {
                                 shrink: true,
                             }} />
                         <Button
-                            disabled={!values.ssn}
+                            disabled={!values.birthday}
                             style={{ marginBottom: 10 }}
                             variant="contained"
                             color="primary"

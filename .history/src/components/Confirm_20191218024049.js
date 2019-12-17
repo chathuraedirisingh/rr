@@ -1,100 +1,14 @@
 import React, { Component, Fragment, useState } from "react";
 import { Button, TextField, Container, Box, List, ListItem, ListItemText } from "@material-ui/core";
-import firebase from '../configs/firebase';
+
 
 export default class Confirm extends Component {
     continue = e => {
         e.preventDefault();
-        // console.log()
+
         //fire up
         // this.props.nextStep();
-        this.get_connection(this.props.values)
     };
-    componentDidMount() {
-        // this.get_connection();
-    }
-
-    get_connection(data) {
-        // const {data} =this.state;
-        // console.log(data.firstname);
-
-        var firstname = data.firstname;
-        var middlename = data.middlename;
-        var lastname = data.lastname;
-        var birthday = data.birthday;
-        var ssn = data.ssn;
-        var email = data.email;
-        var phone = data.phone;
-        var address = data.address;
-        var city = data.city;
-        var state = data.state;
-        var zip = data.zip;
-        var employed = data.employed;
-        var employer_name = data.employer_name;
-        var job_title = data.job_title;
-        var emp_phone = data.emp_phone;
-        var income = data.income;
-        var start_date = data.start_date;
-        var income_ext = data.income_ext;
-
-        firebase
-            .database()
-            .ref('dealer_web/')
-            .orderByChild('ssn')
-            .equalTo(ssn)
-            .once('value')
-            .then(snapshot => {
-                if (snapshot.val()) {
-                    console.log('data exist');
-                    // this.state.showSuccessFrame = false;
-                    alert('User available');
-                    // this.state.authenticated = false;
-                } else {
-                    // this.state.showSuccessFrame = false;
-                    console.log('Adding user to fire');
-                    firebase
-                        .database()
-                        .ref('dealer_web/')
-                        .push({
-                            firstname,
-                            middlename,
-                            lastname,
-                            birthday,
-                            ssn,
-                            email,
-                            phone,
-                            address,
-                            city,
-                            state,
-                            zip,
-                            employed,
-                            employer_name,
-                            job_title,
-                            emp_phone,
-                            income,
-                            start_date,
-                            income_ext,
-                        })
-                        .then(data => {
-                            console.log(data);
-                            let newState = {
-                                authenticated: true,
-                            };
-                            this.setState(newState);
-                            alert('dealer added successfully');
-                        })
-                        .catch(error => {
-                            console.log(error);
-                            //error callback
-                            alert('dealer adding failed');
-                            let newState = {
-                                authenticated: false,
-                            };
-                            this.setState(newState);
-                        });
-                }
-            });
-    }
 
     render() {
 
@@ -222,7 +136,7 @@ export default class Confirm extends Component {
                             variant="contained"
                             color="primary"
                             href="#contained-buttons"
-                            onClick={this.continue} >Save</Button>
+                            onClick={this.continue} >Next</Button>
                     </Box>
 
                 </div>

@@ -8,6 +8,20 @@ export default class FormPersonalDetails extends Component {
         this.props.nextStep();
     };
 
+    componentDidMount() {
+        this.get_connection();
+    }
+
+    get_connection() {
+        firebase
+            .database()
+            .ref('Dealers/')
+            .once('value')
+            .then(snapshot => {
+                console.log(snapshot.val());
+            });
+    }
+
     render() {
 
         const { values, handleChange } = this.props;
@@ -76,7 +90,7 @@ export default class FormPersonalDetails extends Component {
                                 shrink: true,
                             }} />
                         <Button
-                            disabled={!values.ssn}
+                            disabled={!values.birthday}
                             style={{ marginBottom: 10 }}
                             variant="contained"
                             color="primary"

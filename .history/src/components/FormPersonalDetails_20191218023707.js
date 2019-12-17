@@ -1,6 +1,6 @@
 import React, { Component, Fragment, useState } from "react";
 import { Button, TextField, Container, Box } from "@material-ui/core";
-import firebase from '../configs/firebase'
+
 
 export default class FormPersonalDetails extends Component {
     continue = e => {
@@ -76,7 +76,7 @@ export default class FormPersonalDetails extends Component {
                                 shrink: true,
                             }} />
                         <Button
-                            disabled={!values.ssn}
+                            disabled={!values.birthday}
                             style={{ marginBottom: 10 }}
                             variant="contained"
                             color="primary"

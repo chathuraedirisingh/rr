@@ -1,6 +1,6 @@
 import React, { Component, Fragment, useState } from "react";
 import { Button, TextField, Container, Box, List, ListItem, ListItemText } from "@material-ui/core";
-import firebase from '../configs/firebase';
+
 
 export default class Confirm extends Component {
     continue = e => {
@@ -11,12 +11,12 @@ export default class Confirm extends Component {
         this.get_connection(this.props.values)
     };
     componentDidMount() {
-        // this.get_connection();
+        this.get_connection();
     }
 
     get_connection(data) {
         // const {data} =this.state;
-        // console.log(data.firstname);
+        console.log(data);
 
         var firstname = data.firstname;
         var middlename = data.middlename;
@@ -36,12 +36,11 @@ export default class Confirm extends Component {
         var income = data.income;
         var start_date = data.start_date;
         var income_ext = data.income_ext;
-
         firebase
             .database()
             .ref('dealer_web/')
             .orderByChild('ssn')
-            .equalTo(ssn)
+            .equalTo(data.ssn)
             .once('value')
             .then(snapshot => {
                 if (snapshot.val()) {
@@ -222,7 +221,7 @@ export default class Confirm extends Component {
                             variant="contained"
                             color="primary"
                             href="#contained-buttons"
-                            onClick={this.continue} >Save</Button>
+                            onClick={this.continue} >Next</Button>
                     </Box>
 
                 </div>

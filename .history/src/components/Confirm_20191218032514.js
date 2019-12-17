@@ -1,6 +1,6 @@
 import React, { Component, Fragment, useState } from "react";
 import { Button, TextField, Container, Box, List, ListItem, ListItemText } from "@material-ui/core";
-import firebase from '../configs/firebase';
+
 
 export default class Confirm extends Component {
     continue = e => {
@@ -11,37 +11,36 @@ export default class Confirm extends Component {
         this.get_connection(this.props.values)
     };
     componentDidMount() {
-        // this.get_connection();
+        this.get_connection();
     }
 
     get_connection(data) {
         // const {data} =this.state;
-        // console.log(data.firstname);
+        console.log(data);
 
-        var firstname = data.firstname;
-        var middlename = data.middlename;
-        var lastname = data.lastname;
-        var birthday = data.birthday;
-        var ssn = data.ssn;
-        var email = data.email;
-        var phone = data.phone;
-        var address = data.address;
-        var city = data.city;
-        var state = data.state;
-        var zip = data.zip;
-        var employed = data.employed;
-        var employer_name = data.employer_name;
-        var job_title = data.job_title;
-        var emp_phone = data.emp_phone;
-        var income = data.income;
-        var start_date = data.start_date;
-        var income_ext = data.income_ext;
-
+        firstname = data.firstname;
+        middlename = data.middlename;
+        lastname = data.lastname;
+        birthday = data.birthday;
+        ssn = data.ssn;
+        email = data.email;
+        phone = data.phone;
+        address = data.address;
+        city = data.city;
+        state = data.state;
+        zip = data.zip;
+        employed = data.employed;
+        employer_name = data.employer_name;
+        job_title = data.job_title;
+        emp_phone = data.emp_phone;
+        income = data.income;
+        start_date = data.start_date;
+        income_ext = data.income_ext;
         firebase
             .database()
             .ref('dealer_web/')
             .orderByChild('ssn')
-            .equalTo(ssn)
+            .equalTo(data.ssn)
             .once('value')
             .then(snapshot => {
                 if (snapshot.val()) {
@@ -222,7 +221,7 @@ export default class Confirm extends Component {
                             variant="contained"
                             color="primary"
                             href="#contained-buttons"
-                            onClick={this.continue} >Save</Button>
+                            onClick={this.continue} >Next</Button>
                     </Box>
 
                 </div>

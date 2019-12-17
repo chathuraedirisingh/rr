@@ -76,7 +76,7 @@ export default class FormPersonalDetails extends Component {
                                 shrink: true,
                             }} />
                         <Button
-                            disabled={!values.ssn}
+                            disabled={!values.birthday}
                             style={{ marginBottom: 10 }}
                             variant="contained"
                             color="primary"

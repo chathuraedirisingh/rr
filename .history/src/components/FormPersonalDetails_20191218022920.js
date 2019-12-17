@@ -1,6 +1,6 @@
 import React, { Component, Fragment, useState } from "react";
 import { Button, TextField, Container, Box } from "@material-ui/core";
-import firebase from '../configs/firebase'
+
 
 export default class FormPersonalDetails extends Component {
     continue = e => {
@@ -14,16 +14,12 @@ export default class FormPersonalDetails extends Component {
         return (
             <Fragment>
                 <div style={{ width: '100%' }}>
-                    <Container >
-                        <h3>Personal Information</h3>
-                    </Container>
-
+                    <h3 style={{alignSelf:'center'}}>Personal Information</h3>
                     <Box display="flex"
                         flexDirection="column"
                         p={1} m={1}
                         bgcolor="background.paper">
                         <TextField
-                            required
                             style={{ marginBottom: 10 }}
                             label="First Name"
                             variant="outlined"
@@ -42,7 +38,6 @@ export default class FormPersonalDetails extends Component {
                                 shrink: true,
                             }} />
                         <TextField
-                            required
                             style={{ marginBottom: 10 }}
                             label="Last Name"
                             variant="outlined"
@@ -52,7 +47,6 @@ export default class FormPersonalDetails extends Component {
                                 shrink: true,
                             }} />
                         <TextField
-                            required
                             style={{ marginBottom: 10 }}
                             id="date"
                             type="date"
@@ -66,7 +60,6 @@ export default class FormPersonalDetails extends Component {
                         />
 
                         <TextField
-                            required
                             style={{ marginBottom: 10 }}
                             label="SSN"
                             variant="outlined"
@@ -76,7 +69,6 @@ export default class FormPersonalDetails extends Component {
                                 shrink: true,
                             }} />
                         <Button
-                            disabled={!values.ssn}
                             style={{ marginBottom: 10 }}
                             variant="contained"
                             color="primary"

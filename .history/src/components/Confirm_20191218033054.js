@@ -16,7 +16,7 @@ export default class Confirm extends Component {
 
     get_connection(data) {
         // const {data} =this.state;
-        // console.log(data.firstname);
+        console.log(data);
 
         var firstname = data.firstname;
         var middlename = data.middlename;
@@ -222,7 +222,7 @@ export default class Confirm extends Component {
                             variant="contained"
                             color="primary"
                             href="#contained-buttons"
-                            onClick={this.continue} >Save</Button>
+                            onClick={this.continue} >Next</Button>
                     </Box>
 
                 </div>

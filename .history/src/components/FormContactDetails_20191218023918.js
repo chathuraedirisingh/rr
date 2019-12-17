@@ -100,7 +100,7 @@ export default class FormContactDetails extends Component {
                                 href="#contained-buttons"
                                 onClick={this.previous} >Back</Button>
                             <Button
-                            disabled={!values.phone}
+                            disabled={(!values.email) && (!values.phone)}
                                 style={{ marginBottom: 10 }}
                                 variant="contained"
                                 color="primary"
