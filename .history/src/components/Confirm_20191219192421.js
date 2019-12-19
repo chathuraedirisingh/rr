@@ -10,13 +10,6 @@ export default class Confirm extends Component {
         // this.props.nextStep();
         this.get_connection(this.props)
     };
-
-    previous = e => {
-        e.preventDefault();
-        this.props.prevStep();
-    };
-
-
     componentDidMount() {
         // this.get_connection();
     }
@@ -228,7 +221,7 @@ export default class Confirm extends Component {
                                 variant="contained"
                                 color="default"
                                 onClick={this.previous} >Back</Button>
-
+                                
                             <Button
                                 style={{ marginBottom: 10, marginLeft: 20, width: '50%' }}
                                 variant="contained"

@@ -92,16 +92,16 @@ export default class FormContactDetails extends Component {
                         <Box
                             display="flex"
                             alignContent="center"
-                            flexDirection="row">
+                            flexDirection="row"
+                            alignItems="center">
                             <Button
-                                size="large"
-                                style={{ marginBottom: 10, width: '50%' }}
+                                style={{ marginBottom: 10, width: '40%' }}
                                 variant="contained"
                                 color="default"
                                 onClick={this.previous} >Back</Button>
                             <Button
-                                size="large"
-                                style={{ marginBottom: 10, marginLeft: 20, width: '50%' }}
+                                // disabled={!values.phone}
+                                style={{ marginBottom: 10, marginLeft: 20, width: '40%' }}
                                 variant="contained"
                                 color="primary"
                                 onClick={this.continue} >Next</Button>
