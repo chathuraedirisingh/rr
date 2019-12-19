@@ -38,7 +38,7 @@ export default class FormPersonalDetails extends Component {
                             label="Middle Name"
                             variant="outlined"
                             onChange={handleChange('middle_name')}
-                            value={values.middle_name}
+                            defaultValue={values.middle_name}
                             InputLabelProps={{
                                 shrink: true,
                             }} />
@@ -48,7 +48,7 @@ export default class FormPersonalDetails extends Component {
                             label="Last Name"
                             variant="outlined"
                             onChange={handleChange('last_name')}
-                            value={values.last_name}
+                            defaultValue={values.last_name}
                             InputLabelProps={{
                                 shrink: true,
                             }} />
@@ -60,7 +60,7 @@ export default class FormPersonalDetails extends Component {
                             label="Birthday"
                             variant="outlined"
                             onChange={handleChange('date_of_birth')}
-                            value={values.date_of_birth}
+                            defaultValue={values.date_of_birth}
                             InputLabelProps={{
                                 shrink: true,
                             }}
@@ -72,7 +72,7 @@ export default class FormPersonalDetails extends Component {
                             label="SSN"
                             variant="outlined"
                             onChange={handleChange('ssn')}
-                            value={values.ssn}
+                            defaultValue={values.ssn}
                             InputLabelProps={{
                                 shrink: true,
                             }} />

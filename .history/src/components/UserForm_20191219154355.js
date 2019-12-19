@@ -94,7 +94,7 @@ export default class UserForm extends Component {
                     start_date:userdata.start_date,
                 });
             })
-            // alert()
+            alert()
             this.forceUpdate()
             
         }

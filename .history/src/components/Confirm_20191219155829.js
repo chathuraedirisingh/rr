@@ -14,13 +14,9 @@ export default class Confirm extends Component {
         // this.get_connection();
     }
 
-    get_connection(delta) {
+    get_connection(data) {
         // const {data} =this.state;
-        
-
-        var data = delta.values;
         console.log(data);
-        var key =data.key;
 
         var first_name = data.first_name;
         var middle_name = data.middle_name;
@@ -41,6 +37,21 @@ export default class Confirm extends Component {
         var start_date = data.start_date;
         var income_ext = data.income_ext;
 
+        // firebase
+        //     .database()
+        //     .ref('dealer_web/')
+        //     .orderByChild('ssn')
+        //     .equalTo(ssn)
+        //     .once('value')
+        //     .then(snapshot => {
+        //         if (snapshot.val()) {
+        //             console.log('data exist');
+        //             // this.state.showSuccessFrame = false;
+        //             alert('User available');
+        //             // this.state.authenticated = false;
+        //         } else {
+        //             // this.state.showSuccessFrame = false;
+        //             console.log('Adding user to fire');
         firebase
             .database()
             .ref('dealer_web/' + data.key)
@@ -59,8 +70,8 @@ export default class Confirm extends Component {
                 employed: employed,
                 employer_name: employer_name,
                 job_title: job_title,
-                emp_phone:emp_phone,
-                income: income,
+                emp_phone,
+                income: emp_phone,
                 start_date: start_date,
                 income_ext: income_ext,
             })

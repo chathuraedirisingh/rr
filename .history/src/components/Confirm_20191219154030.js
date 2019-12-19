@@ -14,13 +14,9 @@ export default class Confirm extends Component {
         // this.get_connection();
     }
 
-    get_connection(delta) {
+    get_connection(data) {
         // const {data} =this.state;
-        
-
-        var data = delta.values;
         console.log(data);
-        var key =data.key;
 
         var first_name = data.first_name;
         var middle_name = data.middle_name;
@@ -41,45 +37,60 @@ export default class Confirm extends Component {
         var start_date = data.start_date;
         var income_ext = data.income_ext;
 
+        // firebase
+        //     .database()
+        //     .ref('dealer_web/')
+        //     .orderByChild('ssn')
+        //     .equalTo(ssn)
+        //     .once('value')
+        //     .then(snapshot => {
+        //         if (snapshot.val()) {
+        //             console.log('data exist');
+        //             // this.state.showSuccessFrame = false;
+        //             alert('User available');
+        //             // this.state.authenticated = false;
+        //         } else {
+        //             // this.state.showSuccessFrame = false;
+        //             console.log('Adding user to fire');
         firebase
             .database()
             .ref('dealer_web/' + data.key)
-            .update({
-                first_name: first_name,
-                middle_name: middle_name,
-                last_name: last_name,
-                date_of_birth: date_of_birth,
-                ssn: ssn,
-                email: email,
-                phone: phone,
-                address: address,
-                city: city,
-                state: state,
-                zip: zip,
-                employed: employed,
-                employer_name: employer_name,
-                job_title: job_title,
-                emp_phone:emp_phone,
-                income: income,
-                start_date: start_date,
-                income_ext: income_ext,
+            .push({
+                first_name,
+                middle_name,
+                last_name,
+                date_of_birth,
+                ssn,
+                email,
+                phone,
+                address,
+                city,
+                state,
+                zip,
+                employed,
+                employer_name,
+                job_title,
+                emp_phone,
+                income,
+                start_date,
+                income_ext,
             })
             .then(data => {
                 console.log(data);
-                // let newState = {
-                //     authenticated: true,
-                // };
-                // this.setState(newState);
-                // alert('dealer added successfully');
+                let newState = {
+                    authenticated: true,
+                };
+                this.setState(newState);
+                alert('dealer added successfully');
             })
             .catch(error => {
                 console.log(error);
-                // //error callback
-                // alert('dealer adding failed');
-                // let newState = {
-                //     authenticated: false,
-                // };
-                // this.setState(newState);
+                //error callback
+                alert('dealer adding failed');
+                let newState = {
+                    authenticated: false,
+                };
+                this.setState(newState);
             });
         //     }
         // });

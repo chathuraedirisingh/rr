@@ -59,8 +59,8 @@ export default class Confirm extends Component {
                 employed: employed,
                 employer_name: employer_name,
                 job_title: job_title,
-                emp_phone:emp_phone,
-                income: income,
+                emp_phone,
+                income: emp_phone,
                 start_date: start_date,
                 income_ext: income_ext,
             })
