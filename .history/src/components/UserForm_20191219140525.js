@@ -10,7 +10,8 @@ export default class UserForm extends Component {
         first_name: "",
         middle_name: "",
         last_name: "",
-        document_number: '',
+        date_of_birth: '',
+        document_number:'',
         ssn: "",
         email: "",
         phone: "",
@@ -24,19 +25,8 @@ export default class UserForm extends Component {
         emp_phone: "",
         income: "",
         start_date: "",
-        income_ext: "",
-        date_of_birth: "",
-        date_of_expiry: "",
-        date_of_issue: "",
-        document_image: "",
-        face_image: "",
-        sex: "",
-        verified: "",
-        userdata: "",
-        key: ''
+        income_ext: ""
     };
-
-
 
     nextStep = () => {
         const { step } = this.state;
@@ -67,37 +57,33 @@ export default class UserForm extends Component {
         if (!foo === null || foo === undefined) {
             console.log("undefined")
         } else {
-            this.setState({
-                key: foo
-            });
-
-            var userdata;
-            const user_ref = firebase.database().ref('dealer_web/' + foo);
-            user_ref.on('value', snapshot => {
-                userdata = snapshot.val();
-                this.setState({
-                    first_name: userdata.first_name,
-                    middle_name: userdata.middle_name,
-                    last_name:userdata.last_name,
-                    date_of_birth:userdata.date_of_birth,
-                    ssn:userdata.ssn,
-                    email:userdata.email,
-                    phone:userdata.phone,
-                    address:userdata.address,
-                    city:userdata.city,
-                    state:userdata.state,
-                    zip:userdata.zip,
-                    employed:userdata.employed,
-                    employer_name:userdata.employer_name,
-                    emp_phone:userdata.emp_phone,
-                    income:userdata.income,
-                    start_date:userdata.start_date,
-                });
-            })
-            alert()
-            this.forceUpdate()
-            
+            console.log(foo);
+            this.get_data(foo);
         }
+    }
+
+    get_data(key) {
+        firebase
+            .database()
+            .ref('dealer_web/' + key)
+            .once("value", function (snapshot) {
+                console.log(snapshot.val())
+                snapshot.forEach(function (child) {
+                    var el = child.key;
+                    var value = child.val();
+                    try {
+                        console.log(el);
+                        // this.state[el] = value;
+                        // this.setState({ [el]: value });
+                        // this.forceUpdate()
+                    } catch (e) {
+                        console.log(e)
+                    }
+                });
+                // console.log(this.state);
+            });
+        // this.setState({ data });
+        // console.log(this.state);
     }
 
     render() {
@@ -106,36 +92,30 @@ export default class UserForm extends Component {
             first_name,
             middle_name,
             last_name,
-            document_number,
+            date_of_birth,
             ssn,
+
             email,
             phone,
             address,
             city,
             state,
             zip,
+
             employed,
             employer_name,
             job_title,
             emp_phone,
             income,
             start_date,
-            income_ext,
-            date_of_birth,
-            date_of_expiry,
-            date_of_issue,
-            document_image,
-            face_image,
-            sex,
-            verified, key,
-            userdata
+            income_ext
         } = this.state;
 
         const values = {
             first_name,
             middle_name,
             last_name,
-            document_number,
+            date_of_birth,
             ssn,
             email,
             phone,
@@ -149,18 +129,8 @@ export default class UserForm extends Component {
             emp_phone,
             income,
             start_date,
-            income_ext,
-            date_of_birth,
-            date_of_expiry,
-            date_of_issue,
-            document_image,
-            face_image,
-            sex,
-            verified, key,
-            userdata
+            income_ext
         };
-
-        // this.get_data(values.key)
 
         switch (step) {
             case 1:

@@ -26,7 +26,7 @@ export default class FormContactDetails extends Component {
                         p={1} m={1}
                         bgcolor="background.paper">
                         <TextField
-                            required
+                        required
                             type='email'
                             style={{ marginBottom: 10 }}
                             label="Email"
@@ -37,7 +37,7 @@ export default class FormContactDetails extends Component {
                                 shrink: true,
                             }} />
                         <TextField
-                            required
+                        required
                             type="tel"
                             style={{ marginBottom: 10 }}
                             label="Phone Number"
@@ -100,7 +100,7 @@ export default class FormContactDetails extends Component {
                                 href="#contained-buttons"
                                 onClick={this.previous} >Back</Button>
                             <Button
-                                // disabled={!values.phone}
+                            // disabled={!values.phone}
                                 style={{ marginBottom: 10 }}
                                 variant="contained"
                                 color="primary"
@@ -109,9 +109,7 @@ export default class FormContactDetails extends Component {
                         </Box>
 
                     </Box>
-                    <Container >
-                        <h6>for demo only</h6>
-                    </Container>
+
                 </div>
             </Fragment>
         )

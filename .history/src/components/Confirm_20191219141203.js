@@ -8,15 +8,15 @@ export default class Confirm extends Component {
         // console.log()
         //fire up
         // this.props.nextStep();
-        this.get_connection(this.props)
+        this.get_connection(this.props.values)
     };
     componentDidMount() {
         // this.get_connection();
     }
 
     get_connection(data) {
-        // const {data} =this.state;
-        console.log(data);
+        const {data} =this.state;
+        console.log(data.firstname);
 
         var first_name = data.first_name;
         var middle_name = data.middle_name;

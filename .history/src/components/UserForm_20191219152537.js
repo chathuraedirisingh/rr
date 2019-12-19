@@ -92,14 +92,17 @@ export default class UserForm extends Component {
                     emp_phone:userdata.emp_phone,
                     income:userdata.income,
                     start_date:userdata.start_date,
+
                 });
+
             })
-            alert()
+
             this.forceUpdate()
-            
+
+            console.log("Now State " + JSON.stringify(this.state))
         }
     }
-
+    
     render() {
         const { step } = this.state;
         const {

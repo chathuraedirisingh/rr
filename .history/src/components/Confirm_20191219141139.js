@@ -8,15 +8,15 @@ export default class Confirm extends Component {
         // console.log()
         //fire up
         // this.props.nextStep();
-        this.get_connection(this.props)
+        this.get_connection(this.props.values)
     };
     componentDidMount() {
         // this.get_connection();
     }
 
     get_connection(data) {
-        // const {data} =this.state;
-        console.log(data);
+        const {data} =this.state;
+        console.log(data.firstname);
 
         var first_name = data.first_name;
         var middle_name = data.middle_name;
@@ -59,7 +59,7 @@ export default class Confirm extends Component {
                             first_name,
                             middle_name,
                             last_name,
-                            date_of_birth,
+                            birthday,
                             ssn,
                             email,
                             phone,
@@ -102,7 +102,7 @@ export default class Confirm extends Component {
             first_name,
             middle_name,
             last_name,
-            date_of_birth,
+            birthday,
             ssn,
             email,
             phone,
@@ -147,7 +147,7 @@ export default class Confirm extends Component {
                             alignItems='center'
                             flexDirection="row">
                             <ListItem>
-                                <ListItemText primary="Birthday" secondary={date_of_birth} />
+                                <ListItemText primary="Birthday" secondary={birthday} />
                             </ListItem>
                             <ListItem>
                                 <ListItemText primary="SSN" secondary={ssn} />

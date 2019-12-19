@@ -86,7 +86,7 @@ export default class FormPersonalDetails extends Component {
                     </Box>
 
                     <Container >
-                        <h6>for demo only</h6>
+                        <h6>Personal Information</h6>
                     </Container>
 
                 </div>

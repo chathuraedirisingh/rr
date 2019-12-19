@@ -11,7 +11,7 @@ export default class FormPersonalDetails extends Component {
     render() {
 
         const { values, handleChange } = this.props;
-        // console.log("Values "+JSON.stringify(values))
+        console.log(values)
         return (
             <Fragment>
                 <div style={{ width: '100%' }}>
@@ -59,7 +59,7 @@ export default class FormPersonalDetails extends Component {
                             type="date"
                             label="Birthday"
                             variant="outlined"
-                            onChange={handleChange('date_of_birth')}
+                            onChange={handleChange('birthday')}
                             defaultValue={values.date_of_birth}
                             InputLabelProps={{
                                 shrink: true,
@@ -77,17 +77,13 @@ export default class FormPersonalDetails extends Component {
                                 shrink: true,
                             }} />
                         <Button
-                            // disabled={!values.ssn}
+                            disabled={!values.ssn}
                             style={{ marginBottom: 10 }}
                             variant="contained"
                             color="primary"
                             href="#contained-buttons"
                             onClick={this.continue} >Next</Button>
                     </Box>
-
-                    <Container >
-                        <h6>for demo only</h6>
-                    </Container>
 
                 </div>
             </Fragment>

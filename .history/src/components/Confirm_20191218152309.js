@@ -8,7 +8,7 @@ export default class Confirm extends Component {
         // console.log()
         //fire up
         // this.props.nextStep();
-        this.get_connection(this.props)
+        this.get_connection(this.props.values)
     };
     componentDidMount() {
         // this.get_connection();
@@ -16,12 +16,12 @@ export default class Confirm extends Component {
 
     get_connection(data) {
         // const {data} =this.state;
-        console.log(data);
+        // console.log(data.firstname);
 
-        var first_name = data.first_name;
-        var middle_name = data.middle_name;
-        var last_name = data.last_name;
-        var date_of_birth = data.date_of_birth;
+        var firstname = data.firstname;
+        var middlename = data.middlename;
+        var lastname = data.lastname;
+        var birthday = data.birthday;
         var ssn = data.ssn;
         var email = data.email;
         var phone = data.phone;
@@ -56,10 +56,10 @@ export default class Confirm extends Component {
                         .database()
                         .ref('dealer_web/')
                         .push({
-                            first_name,
-                            middle_name,
-                            last_name,
-                            date_of_birth,
+                            firstname,
+                            middlename,
+                            lastname,
+                            birthday,
                             ssn,
                             email,
                             phone,
@@ -102,7 +102,7 @@ export default class Confirm extends Component {
             first_name,
             middle_name,
             last_name,
-            date_of_birth,
+            birthday,
             ssn,
             email,
             phone,
@@ -147,7 +147,7 @@ export default class Confirm extends Component {
                             alignItems='center'
                             flexDirection="row">
                             <ListItem>
-                                <ListItemText primary="Birthday" secondary={date_of_birth} />
+                                <ListItemText primary="Birthday" secondary={birthday} />
                             </ListItem>
                             <ListItem>
                                 <ListItemText primary="SSN" secondary={ssn} />

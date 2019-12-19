@@ -85,10 +85,6 @@ export default class FormPersonalDetails extends Component {
                             onClick={this.continue} >Next</Button>
                     </Box>
 
-                    <Container >
-                        <h6>for demo only</h6>
-                    </Container>
-
                 </div>
             </Fragment>
         )

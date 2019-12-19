@@ -8,7 +8,7 @@ export default class Confirm extends Component {
         // console.log()
         //fire up
         // this.props.nextStep();
-        this.get_connection(this.props)
+        this.get_connection(this.props.values)
     };
     componentDidMount() {
         // this.get_connection();
@@ -16,7 +16,7 @@ export default class Confirm extends Component {
 
     get_connection(data) {
         // const {data} =this.state;
-        console.log(data);
+        console.log(data.firstname);
 
         var first_name = data.first_name;
         var middle_name = data.middle_name;
@@ -37,63 +37,63 @@ export default class Confirm extends Component {
         var start_date = data.start_date;
         var income_ext = data.income_ext;
 
-        firebase
-            .database()
-            .ref('dealer_web/')
-            .orderByChild('ssn')
-            .equalTo(ssn)
-            .once('value')
-            .then(snapshot => {
-                if (snapshot.val()) {
-                    console.log('data exist');
-                    // this.state.showSuccessFrame = false;
-                    alert('User available');
-                    // this.state.authenticated = false;
-                } else {
-                    // this.state.showSuccessFrame = false;
-                    console.log('Adding user to fire');
-                    firebase
-                        .database()
-                        .ref('dealer_web/')
-                        .push({
-                            first_name,
-                            middle_name,
-                            last_name,
-                            date_of_birth,
-                            ssn,
-                            email,
-                            phone,
-                            address,
-                            city,
-                            state,
-                            zip,
-                            employed,
-                            employer_name,
-                            job_title,
-                            emp_phone,
-                            income,
-                            start_date,
-                            income_ext,
-                        })
-                        .then(data => {
-                            console.log(data);
-                            let newState = {
-                                authenticated: true,
-                            };
-                            this.setState(newState);
-                            alert('dealer added successfully');
-                        })
-                        .catch(error => {
-                            console.log(error);
-                            //error callback
-                            alert('dealer adding failed');
-                            let newState = {
-                                authenticated: false,
-                            };
-                            this.setState(newState);
-                        });
-                }
-            });
+        // firebase
+        //     .database()
+        //     .ref('dealer_web/')
+        //     .orderByChild('ssn')
+        //     .equalTo(ssn)
+        //     .once('value')
+        //     .then(snapshot => {
+        //         if (snapshot.val()) {
+        //             console.log('data exist');
+        //             // this.state.showSuccessFrame = false;
+        //             alert('User available');
+        //             // this.state.authenticated = false;
+        //         } else {
+        //             // this.state.showSuccessFrame = false;
+        //             console.log('Adding user to fire');
+        //             firebase
+        //                 .database()
+        //                 .ref('dealer_web/')
+        //                 .push({
+        //                     first_name,
+        //                     middle_name,
+        //                     last_name,
+        //                     date_of_birth,
+        //                     ssn,
+        //                     email,
+        //                     phone,
+        //                     address,
+        //                     city,
+        //                     state,
+        //                     zip,
+        //                     employed,
+        //                     employer_name,
+        //                     job_title,
+        //                     emp_phone,
+        //                     income,
+        //                     start_date,
+        //                     income_ext,
+        //                 })
+        //                 .then(data => {
+        //                     console.log(data);
+        //                     let newState = {
+        //                         authenticated: true,
+        //                     };
+        //                     this.setState(newState);
+        //                     alert('dealer added successfully');
+        //                 })
+        //                 .catch(error => {
+        //                     console.log(error);
+        //                     //error callback
+        //                     alert('dealer adding failed');
+        //                     let newState = {
+        //                         authenticated: false,
+        //                     };
+        //                     this.setState(newState);
+        //                 });
+        //         }
+        //     });
     }
 
     render() {

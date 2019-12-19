@@ -94,9 +94,8 @@ export default class UserForm extends Component {
                     start_date:userdata.start_date,
                 });
             })
-            alert()
             this.forceUpdate()
-            
+            console.log("Now State " + JSON.stringify(this.state))
         }
     }
 

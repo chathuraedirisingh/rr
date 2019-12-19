@@ -32,7 +32,7 @@ export default class UserForm extends Component {
         face_image: "",
         sex: "",
         verified: "",
-        userdata: "",
+        userdata: {},
         key: ''
     };
 
@@ -70,34 +70,42 @@ export default class UserForm extends Component {
             this.setState({
                 key: foo
             });
-
-            var userdata;
-            const user_ref = firebase.database().ref('dealer_web/' + foo);
-            user_ref.on('value', snapshot => {
-                userdata = snapshot.val();
-                this.setState({
-                    first_name: userdata.first_name,
-                    middle_name: userdata.middle_name,
-                    last_name:userdata.last_name,
-                    date_of_birth:userdata.date_of_birth,
-                    ssn:userdata.ssn,
-                    email:userdata.email,
-                    phone:userdata.phone,
-                    address:userdata.address,
-                    city:userdata.city,
-                    state:userdata.state,
-                    zip:userdata.zip,
-                    employed:userdata.employed,
-                    employer_name:userdata.employer_name,
-                    emp_phone:userdata.emp_phone,
-                    income:userdata.income,
-                    start_date:userdata.start_date,
-                });
-            })
-            alert()
-            this.forceUpdate()
-            
+            // console.log(this.state);
+            // this.get_data(foo);
         }
+    }
+
+    get_data(key) {
+        firebase
+            .database()
+            .ref('dealer_web/' + key)
+            .once("value", function (snapshot) {
+                this.state.userdata = snapshot.val();
+                this.setState({
+                    userdata: snapshot.val()
+                });
+                // snapshot.forEach(function (child) {
+                //     var el = child.key;
+                //     var value2 = child.val();
+                //     try {
+                //         // let value = {
+                //         //     [child.key]: value2
+                //         // }
+
+                //         this.setState({[child.key]: value2});
+
+                //         // console.log(value);
+                //         // this.state[el] = value;
+                //         // this.setState({ [el]: value });
+                //         // this.forceUpdate()
+                //     } catch (e) {
+                //         console.log(e)
+                //     }
+                // });
+                // console.log(this.state);
+            });
+        // this.setState({ data });
+        // console.log(this.state);
     }
 
     render() {
@@ -159,8 +167,6 @@ export default class UserForm extends Component {
             verified, key,
             userdata
         };
-
-        // this.get_data(values.key)
 
         switch (step) {
             case 1:
